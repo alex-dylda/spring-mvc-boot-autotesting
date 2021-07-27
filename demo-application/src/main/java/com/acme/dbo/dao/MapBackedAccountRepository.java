@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class MapBackedAccountRepository implements AccountRepository {
     private static final Logger log = LoggerFactory.getLogger(MapBackedAccountRepository.class);
-    private final Map<Integer, Account> accounts ;
+    private final Map<Integer, Account> accounts;
 
     public MapBackedAccountRepository(int initialCapacity) {
         accounts = new HashMap<>(initialCapacity);
@@ -20,13 +20,24 @@ public class MapBackedAccountRepository implements AccountRepository {
 
     @Override
     public Account create(Account accountData) {
-        Account newAccount = new Account(
-            accounts.isEmpty() ? 0 : Collections.max(accounts.keySet()) + 1,
-            accountData.getAmount()
-        );
+//        Account newAccount = new Account(
+//            accounts.isEmpty() ? 0 : Collections.max(accounts.keySet()) + 1,
+//            accountData.getAmount()
+//        );
+        if(accountData == null) {
+            throw new RuntimeException("Cannot create null account");
+        }
+        final int newAccountId = accountData.getId();
+        if (accounts.containsKey(newAccountId)) {
+            if(!accounts.get(newAccountId).getAmount().equals(accountData.getAmount())) {
+                throw new RuntimeException("Account with ID: " + accountData.getId() + " already exists with another amount.");
+            } else {
+                return accounts.get(accountData.getId());
+            }
+        }
 
-        accounts.put(newAccount.getId(), newAccount);
-        return newAccount;
+        accounts.put(newAccountId, new Account(accountData));
+        return accounts.get(newAccountId);
     }
 
     @Override
