@@ -11,6 +11,11 @@ public class Account {
         this.amount = amount;
     }
 
+    public Account(final Account account) {
+        this.id = account.getId();
+        this.amount = account.getAmount();
+    }
+
     public int getId() {
         return id;
     }
