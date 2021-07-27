@@ -54,7 +54,7 @@ public class AccountCrudSystemIT {
     }
 
     @Test @DirtiesContext
-    public void shouldCreateAccountWhenAccountIsAlreadyExistsWithTheSameAMount() throws AccountNotFoundException {
+    public void shouldCreateAccountWhenAccountIsAlreadyExistsWithTheSameAmount() throws AccountNotFoundException {
         final Account newAcc = new Account(1, new BigDecimal(100));
         accountController.create(newAcc);
         final Account newAcc2 = new Account(1, new BigDecimal(100));
@@ -66,7 +66,7 @@ public class AccountCrudSystemIT {
     }
 
     @Test @DirtiesContext
-    public void shouldThrowExceptionWhenAccountIsAlreadyExists() {
+    public void shouldThrowExceptionWhenAccountIsAlreadyExistsWithAnotherAmount() {
         final Account newAcc = new Account(1, new BigDecimal(100));
         accountController.create(newAcc);
         final Account newAcc2 = new Account(1, new BigDecimal(200));
@@ -83,7 +83,7 @@ public class AccountCrudSystemIT {
     }
 
     @Test
-    public void shouldThrowExceptionWhenAccountNotFoundFindAccountByIdWhenAccountExists() {
+    public void shouldThrowExceptionWhenAccountNotFound() {
         final AccountNotFoundException exception = assertThrows(AccountNotFoundException.class,() -> accountController.findById(1));
         assertEquals(AccountNotFoundException.class, exception.getClass());
         assertEquals("1",exception.getMessage());
