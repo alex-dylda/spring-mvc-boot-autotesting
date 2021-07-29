@@ -4,6 +4,7 @@ import com.acme.dbo.config.Config;
 import com.acme.dbo.controller.AccountController;
 import com.acme.dbo.controller.AccountNotFoundException;
 import com.acme.dbo.domain.Account;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = Config.class)
 @TestPropertySource("classpath:application-test.properties")
+@Disabled
 public class AccountCrudSystemIT {
     @Autowired
     private AccountController accountController;
