@@ -1,0 +1,14 @@
+accounts.repo.init-capacity: 5
+
+spring:
+  datasource:
+    url: "jdbc:derby:memory:dbo;create=true"
+    username: app
+  jpa:
+    database: default
+    generate-ddl: true
+    show-sql: true
+    hibernate.ddl-auto: update
+    properties.hibernate:
+      default_schema: app
+      dialect: org.hibernate.dialect.DerbyDialect
