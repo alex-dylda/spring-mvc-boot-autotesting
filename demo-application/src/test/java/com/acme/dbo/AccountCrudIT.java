@@ -1,11 +1,10 @@
 package com.acme.dbo;
 
-import com.acme.dbo.config.TestConfig;
+import com.acme.config.TestConfig;
 import com.acme.dbo.controller.AccountController;
 import com.acme.dbo.controller.AccountNotFoundException;
 import com.acme.dbo.dao.AccountRepository;
 import com.acme.dbo.domain.Account;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,17 +1,10 @@
-package com.acme.dbo.config;
+package com.acme.config;
 
 import com.acme.dbo.dao.AccountRepository;
-import com.acme.dbo.dao.MapBackedAccountRepository;
-import com.acme.dbo.domain.Account;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
-import java.util.Collection;
-
-import static java.util.Collections.EMPTY_SET;
 import static org.mockito.Mockito.mock;
 
 @Configuration

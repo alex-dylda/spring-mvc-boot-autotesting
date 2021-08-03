@@ -1,6 +1,6 @@
 package com.acme.dbo;
 
-import com.acme.dbo.config.Config;
+import com.acme.config.Config;
 import com.acme.dbo.controller.AccountController;
 import com.acme.dbo.controller.AccountNotFoundException;
 import com.acme.dbo.domain.Account;
@@ -25,7 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(classes = Config.class)
 @TestPropertySource("classpath:application-test.properties")
 @WebAppConfiguration
-@Disabled
 public class AccountCrudSystemIT {
     @Autowired
     private AccountController accountController;

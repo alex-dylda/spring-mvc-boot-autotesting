@@ -1,4 +1,4 @@
-package com.acme.dbo.config;
+package com.acme.config;
 
 import com.acme.dbo.dao.AccountRepository;
 import com.acme.dbo.dao.MapBackedAccountRepository;
@@ -29,7 +29,7 @@ public class Config implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.setConfigLocation("com.acme.dbo.config");
+        context.setConfigLocation("com.acme.config");
 
         container.addListener(new ContextLoaderListener(context));
 
