@@ -1,5 +1,8 @@
 package com.acme.dbo.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -7,7 +10,8 @@ public class Account {
     private int id;
     private BigDecimal amount;
 
-    public Account(int id, BigDecimal amount) {
+    @JsonCreator
+    public Account(@JsonProperty("id") int id, @JsonProperty("amount") BigDecimal amount) {
         this.id = id;
         this.amount = amount;
     }
